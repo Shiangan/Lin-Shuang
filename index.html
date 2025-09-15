@@ -782,209 +782,157 @@ document.addEventListener("DOMContentLoaded", function () {
 </style>
        
 
-     <!-- 交通資訊區塊（圖文整合） -->
-<section id="transport-info" class="transport-section">
-  <h2><strong>交通資訊</strong></h2>
+    <!-- 中壢玥詠生命會館 — 最完善交通資訊模組（直接貼入現有頁面） -->
+<section id="transport-info" class="transport-section" aria-labelledby="transport-title">
+  <h2 id="transport-title"><strong>交通資訊 — 中壢玥詠生命會館</strong></h2>
 
-  <!-- 基本交通文字資訊 -->
-  <div class="transport-details">
-    <div class="transport-item">
-      <h3>📍 新北市立殯儀館</h3>
-      <p><strong>地址：</strong>220036 新北市板橋區中正路560號</p>
+  <!-- 基本資訊與主要動作 -->
+  <div class="ti-row">
+    <div class="ti-card ti-contact" aria-label="會館聯絡資訊">
+      <h3>📍 會館資訊</h3>
+      <address>
+        <strong>會館名稱：</strong>中壢玥詠生命會館<br>
+        <strong>地址：</strong><span id="ty-address">桃園市中壢區培英路276之1號</span><br>
+      </address>
+
+
+      <div class="ti-actions" role="toolbar" aria-label="交通功能按鈕">
+        <button type="button" class="btn" onclick="openGoogleMaps()">一鍵導航（Google Maps）</button>
+        <button type="button" class="btn" onclick="openAppleMaps()">一鍵導航（Apple Maps）</button>
+        <button type="button" class="btn" onclick="copyAddress()">複製地址</button>
+        <button type="button" class="btn" onclick="window.print()">列印</button>
+        <button type="button" class="btn" onclick="shareInfo()">分享</button>
+      </div>
     </div>
-    <div class="transport-item">
-      <h4>🚍 公車資訊</h4>
-      <p><strong>新海橋頭站：</strong>658、857、橘5</p>
-      <p><strong>新海抽水站：</strong>810、786</p>
-      <p>🧍‍♂️ 步行約 3 分鐘即可到達</p>
-    </div>
-    <div class="transport-item">
-      <a class="map-link" href="https://maps.app.goo.gl/hLfa9ZgUqqhEayK6A?g_st=ipc" target="_blank">
-        ➤ 點我開啟 Google 地圖
-      </a>
+
+    <div class="ti-card ti-map" aria-hidden="false">
+      <h3>地圖（可放大）</h3>
+      <!-- 經緯度：24.976669, 121.22746 （對應培英路276號） -->
+      <div class="map-embed" id="map-embed">
+        <iframe
+          title="中壢玥詠生命會館位置"
+          src="https://www.google.com/maps?q=24.976669,121.22746&z=17&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          aria-label="Google Map 中壢玥詠生命會館">
+        </iframe>
+      </div>
+      <p class="meta">座標：<small>24.976669, 121.22746</small></p>
     </div>
   </div>
 
-  <!-- 圖片展示區 -->
-  <div class="transport-image-area">
-    <h2 class="title">殯儀館導引圖與停車資訊</h2>
-    <p class="subtitle">點擊圖片可放大查看</p>
-    <div class="image-gallery">
-      <img src="image/IMG_6325.png" alt="殯儀館資訊" class="gallery-img" loading="lazy">
-      <img src="image/祥安資訊-板殯.png" alt="停車地圖" class="gallery-img" loading="lazy">
+  <!-- 詳盡交通與停車指引 -->
+  <div class="ti-card ti-details" aria-label="交通詳細說明">
+    <h3>🚗 自駕 / 開車建議</h3>
+    <ol>
+      <li><strong>國道一號（中山高）→ 內壢交流道（57B）</strong>：下交流道後走中園路（110甲）→ 右轉西園路二段 → 左轉西園路 → 右轉培英路即可抵達（依路況約 5–15 分鐘）。</li>
+      <li>若使用導航，請輸入完整門牌「培英路276之1號」或搜尋「中壢殯儀館」，會館位於殯儀館對面。<li>
+    </ol>
+
+    <h3>🚆 大眾運輸（火車 / 高鐵 / 捷運 / 公車）</h3>
+    <ul>
+      <li><strong>火車（台鐵）：</strong>抵達 <em>中壢車站</em> 後轉乘計程車（約 5–10 分鐘）或轉公車至「中壢殯儀館 / 培英路」站下車後步行抵達。 </li>
+      <li><strong>高鐵：</strong>抵達 <em>桃園高鐵站</em>，搭計程車前往約 15–20 分鐘（視交通）。</li>
+      <li><strong>公車：</strong>因公車路線會有調整，建議以「中壢殯儀館」或「培英路」為下車站名於最新公車查詢App/網站查詢班次。</li>
+    </ul>
+
+    <h3>🅿️ 停車與接駁</h3>
+    <ul>
+      <li>會館位置鄰近 <strong>中壢殯儀館訪客停車場</strong>，可視情況停放或以路邊停車格為輔（告別式期間車位可能緊張，請提早抵達或安排接駁）。 </li>
+      <li>若家屬或長者行動不便，建議直接於會館門口短暫下客後再將車輛停妥，或事先與會館協調接駁安排。</li>
+    </ul>
+
+    
+  </div>
+
+  <!-- 圖片畫廊（燈箱） -->
+  <div class="ti-card ti-gallery" aria-label="圖像展示">
+    <h3>場地導引圖 / 停車示意（點擊可放大）</h3>
+    <div class="gallery-grid" role="list">
+      <img src="image/yuyeong_map.png" alt="玥詠會館位置示意圖" class="gallery-img" loading="lazy" role="listitem">
+      <img src="image/yuyeong_parking.png" alt="玥詠會館停車示意圖" class="gallery-img" loading="lazy" role="listitem">
     </div>
   </div>
 </section>
 
-        <style>
- .transport-section {
-  background-color: #f9f9f9;
-  padding: 30px 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  max-width: 900px;
-  margin: 50px auto;
-  font-family: 'Noto Serif', 'MingLiU', serif;
-}
-
-.transport-section h2 {
-  font-size: 26px;
-  margin-bottom: 25px;
-  color: #333;
-  text-align: center;
-}
-
-.transport-details {
-  text-align: left;
-  line-height: 1.8;
-  margin-bottom: 30px;
-}
-
-.transport-item {
-  margin-bottom: 20px;
-}
-
-.transport-item h3,
-.transport-item h4 {
-  font-size: 20px;
-  margin-bottom: 8px;
-  color: #444;
-}
-
-.transport-item p {
-  font-size: 16px;
-  margin: 4px 0;
-  color: #222;
-}
-
-.map-link {
-  display: inline-block;
-  margin-top: 10px;
-  font-weight: bold;
-  color: #005cbf;
-  font-size: 16px;
-  text-decoration: none;
-  border: 1px solid #005cbf;
-  padding: 8px 16px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.map-link:hover {
-  background-color: #005cbf;
-  color: #fff;
-}
-
-/* 圖片畫廊樣式 */
-.transport-image-area {
-  text-align: center;
-}
-
-.transport-image-area .title {
-  font-family: 'Arial', sans-serif;
-  font-size: 23px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.transport-image-area .subtitle {
-  font-size: 16px;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-.image-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 15px;
-  justify-items: center;
-}
-
-.gallery-img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.gallery-img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* 手機適應 */
-@media (max-width: 600px) {
-  .gallery-img {
-    width: 90%;
-  }
-
-  .transport-section h2 {
-    font-size: 22px;
-  }
-}
-            </style>
-
-  <!-- 燈箱腳本 -->
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const galleryImages = document.querySelectorAll(".gallery-img");
-
-    galleryImages.forEach(img => {
-      img.addEventListener("click", function () {
-        const lightbox = document.createElement("div");
-        lightbox.classList.add("lightbox");
-
-        const lightboxImg = document.createElement("img");
-        lightboxImg.src = this.src;
-        lightboxImg.alt = this.alt;
-
-        lightbox.appendChild(lightboxImg);
-        document.body.appendChild(lightbox);
-
-        // 點擊畫面任意處關閉
-        lightbox.addEventListener("click", () => {
-          lightbox.remove();
-        });
-      });
-    });
-  });
-</script>
-
+<!-- 內建樣式（可整合到主樣式檔） -->
 <style>
-  .lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  animation: fadeIn 0.3s ease-in-out;
-}
+.transport-section, .transport-section * {box-sizing: border-box;}
+.transport-section {max-width:1100px;margin:28px auto;padding:22px;background:#fff;border-radius:12px;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#222;box-shadow:0 8px 28px rgba(12,18,25,0.06);}
+.transport-section h2 {text-align:center;margin:0 0 14px;font-size:1.35rem;color:#1f2937;}
+.ti-row {display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;}
+.ti-card {flex:1 1 320px;background:#fbfbfc;padding:14px;border-radius:10px;border:1px solid #eef2f6;}
+.ti-contact address{font-style:normal;line-height:1.6}
+.ti-actions {display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.btn{background:#fff;border:1px solid #cbd5e1;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:0.95rem;}
+.btn:hover{background:#f1f5f9}
+.btn.primary{background:#0f1724;color:#fff;border:none;}
+.map-embed {width:100%;height:260px;border-radius:8px;overflow:hidden;border:1px solid #e6eef6}
+.map-embed iframe{width:100%;height:100%;display:block}
+.ti-details ol,.ti-details ul{margin:0 0 8px 1.15em;padding:6px 0}
+.warning{background:#fff4f2;border-left:4px solid #ff7a5a;padding:8px;border-radius:6px}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:8px}
+.gallery-img{width:100%;height:auto;border-radius:8px;cursor:pointer;box-shadow:0 6px 18px rgba(14,20,25,0.06);transition:transform .18s ease}
+.gallery-img:hover{transform:scale(1.03);box-shadow:0 18px 38px rgba(14,20,25,0.08)}
+.meta{color:#6b7280;font-size:0.92rem;margin-top:8px}
+@media(max-width:880px){.ti-row{flex-direction:column}.map-embed{height:220px}}
+</style>
 
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-}
+<!-- 互動腳本（複製、分享、導航、燈箱） -->
+<script>
+(function(){
+  const LAT = 24.976669, LNG = 121.22746;
+  // Google / Apple 地圖
+  window.openGoogleMaps = function(){
+    const url = 'https://www.google.com/maps/dir/?api=1&destination=' + LAT + ',' + LNG;
+    window.open(url,'_blank');
+  };
+  window.openAppleMaps = function(){
+    const url = 'https://maps.apple.com/?daddr=' + LAT + ',' + LNG;
+    window.open(url,'_blank');
+  };
+  // 複製地址
+  window.copyAddress = function(){
+    const txt = document.getElementById('ty-address').textContent.trim();
+    navigator.clipboard?.writeText(txt).then(()=>{ alert('地址已複製：\\n' + txt); })
+    .catch(()=>{ prompt('請手動複製地址：', txt); });
+  };
+  // 分享（先用 Web Share API，無則複製當前頁網址）
+  window.shareInfo = function(){
+    const shareText = encodeURIComponent('中壢玥詠生命會館 — ' + document.getElementById('ty-address').textContent.trim());
+    if(navigator.share){
+      navigator.share({title: '中壢玥詠生命會館', text: document.getElementById('ty-address').textContent.trim()})
+      .catch(()=>{/*使用者取消或不支援*/});
+    } else {
+      const url = location.href || document.URL || '';
+      const shareUrl = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(url);
+      window.open(shareUrl,'_blank');
+    }
+  };
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-    </style>
+  // 燈箱（圖片放大）
+  document.addEventListener('click', function(e){
+    if(e.target.matches('.gallery-img')){
+      const src = e.target.src;
+      const alt = e.target.alt || '';
+      const lb = document.createElement('div');
+      lb.className = 'ty-lightbox';
+      lb.innerHTML = '<img src="'+src+'" alt="'+alt+'"><button class="ty-close" aria-label="關閉">✕</button>';
+      document.body.appendChild(lb);
+      lb.querySelector('.ty-close').addEventListener('click', ()=> lb.remove());
+      lb.addEventListener('click', (ev)=>{ if(ev.target===lb) lb.remove(); });
+    }
+  });
+
+  // 加入簡單 style for lightbox
+  const css = `
+.ty-lightbox{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.85);z-index:9999}
+.ty-lightbox img{max-width:92%;max-height:92%;border-radius:8px;box-shadow:0 12px 40px rgba(0,0,0,.6)}
+.ty-close{position:fixed;right:26px;top:20px;background:#fff;border-radius:50%;border:none;width:40px;height:40px;font-size:18px;cursor:pointer}
+`;
+  const style = document.createElement('style'); style.textContent = css; document.head.appendChild(style);
+})();
+</script>
 
 
 <!-- 页脚 -->
